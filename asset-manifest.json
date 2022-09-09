@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ct-project/static/css/main.073c9b0a.css",
+    "main.js": "/ct-project/static/js/main.463c385e.js",
+    "index.html": "/ct-project/index.html",
+    "main.073c9b0a.css.map": "/ct-project/static/css/main.073c9b0a.css.map",
+    "main.463c385e.js.map": "/ct-project/static/js/main.463c385e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.463c385e.js"
+  ]
+}
