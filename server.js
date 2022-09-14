@@ -1,5 +1,5 @@
 const express = require("express");
-const mysql = require("mysql");
+const mysql = require("mysql2");
 require("dotenv").config();
 
 const app = express();
@@ -20,7 +20,7 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 
 // Show all comments
 app.get("/comments", (req, res) => {
-    db.query("SELECT * FROM quiz", (err, result) => {
+    db.query("SELECT * FROM quiz_comments", (err, result) => {
       if (err) {
         console.log(err);
       } else {
@@ -31,7 +31,7 @@ app.get("/comments", (req, res) => {
 
 // Add new comment
 app.post("/comments", (req, res) => {
-const insertQuery = "INSERT INTO comment_message SET ?";
+const insertQuery = "INSERT INTO quiz_comments SET ?";
 db.query(insertQuery, req.body, (err, result) => {
     if (err) {
     console.log(err);
@@ -44,7 +44,7 @@ db.query(insertQuery, req.body, (err, result) => {
 // Edit comment
 app.put("/comments", (req, res) => {
     const updateQuery =
-      "UPDATE quiz SET comment_message = ?, comment_rating = ? WHERE id = ?";
+      "UPDATE quiz_comments SET comment_message = ?, comment_rating = ? WHERE id = ?";
     db.query(
       updateQuery,
       [req.body.comment_message, req.body.comment_rating, req.body.id],
@@ -60,7 +60,7 @@ app.put("/comments", (req, res) => {
   
   app.delete("/comments/:id", (req, res) => {
     db.query(
-      "DELETE FROM quiz WHERE id = ?",
+      "DELETE FROM quiz_comments WHERE id = ?",
       req.params.id,
       (err, result) => {
         if (err) {
