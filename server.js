@@ -1,6 +1,10 @@
 const express = require("express");
 const mysql = require("mysql2");
 require("dotenv").config();
+const cors = require("cors");
+
+// Will allow client side at localhost:3001 to make requiests to server at port 3000
+app.use(cors());
 
 const app = express();
 app.use(express.json()); // parses incoming requests with JSON payloads
@@ -12,7 +16,6 @@ const db = mysql.createPool({
     password: process.env.DB_PASSWORD, //password
     database: process.env.DB, //comments
   });
-  
 
 const listener = app.listen(process.env.PORT || 3000, () => {
     console.log('App is listening on port ' + listener.address().port)
@@ -20,25 +23,25 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 
 // Show all comments
 app.get("/comments", (req, res) => {
-    db.query("SELECT * FROM quiz_comments", (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    });
+  db.query("SELECT * FROM quiz_comments", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
   });
+});
 
 // Add new comment
 app.post("/comments", (req, res) => {
-const insertQuery = "INSERT INTO quiz_comments SET ?";
-db.query(insertQuery, req.body, (err, result) => {
-    if (err) {
-    console.log(err);
-    } else {
-    res.send("Comment Added to Database");
-    }
-});
+  const insertQuery = "INSERT INTO quiz_comments SET ?";
+    db.query(insertQuery, req.body, (err, result) => {
+      if (err) {
+      console.log(err);
+      } else {
+      res.send("Comment Added to Database");
+      }
+    });
 });
   
 // Edit comment
@@ -56,19 +59,20 @@ app.put("/comments", (req, res) => {
         }
       }
     );
-  });
+});
   
-  app.delete("/comments/:id", (req, res) => {
-    db.query(
-      "DELETE FROM quiz_comments WHERE id = ?",
-      req.params.id,
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(result);
-        }
+  // Delete Comment
+app.delete("/comments/:id", (req, res) => {
+  db.query(
+    "DELETE FROM quiz_comments WHERE id = ?",
+    req.params.id,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
       }
-    );
-  });
-   
+    }
+  );
+});
+  
