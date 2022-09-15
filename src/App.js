@@ -2,8 +2,8 @@ import './App.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 function App() {
+
   const [comments, setComments] = useState([]);
 
   const getComments = () => {
@@ -16,23 +16,24 @@ function App() {
       getComments();
   }, [comments]);
 
-  
-  return (
+  return(
     <div className="App">
-      <div className="comments">
-        {comments.map((item) => {
-          return (
-            <div className="comment">
-                <h3>Name: {item.comment_name}</h3>
-                <h3>Comment: {item.comment_message}</h3>
-                <h3>Rating: {item.comment_rating}</h3>
-            </div>
-          );
-        })}
-      </div>
+
+    <div className="comments">
+    {comments.map((item) => {
+        return (
+          <div className="comment">
+            <h3>Name: {item.comment_name}</h3>
+            <h3>Comment: {item.comment_message}</h3>
+            <h3>Rating: {item.comment_rating}</h3>
+          </div>
+        );
+    })}
+  </div>
 
     </div>
-  );
+  )
+
 }
 
 export default App;

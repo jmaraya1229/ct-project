@@ -3,11 +3,9 @@ const mysql = require("mysql2");
 require("dotenv").config();
 const cors = require("cors");
 
-// Will allow client side at localhost:3001 to make requiests to server at port 3000
-app.use(cors());
-
 const app = express();
 app.use(express.json()); // parses incoming requests with JSON payloads
+app.use(cors()); // Will allow client side at localhost:3001 to make requiests to server at port 3000
 
 //create connection to database
 const db = mysql.createPool({
@@ -16,10 +14,6 @@ const db = mysql.createPool({
     password: process.env.DB_PASSWORD, //password
     database: process.env.DB, //comments
   });
-
-const listener = app.listen(process.env.PORT || 3000, () => {
-    console.log('App is listening on port ' + listener.address().port)
-})
 
 // Show all comments
 app.get("/comments", (req, res) => {
@@ -75,4 +69,8 @@ app.delete("/comments/:id", (req, res) => {
     }
   );
 });
-  
+
+
+const listener = app.listen(process.env.PORT || 3000, () => {
+  console.log('App is listening on port ' + listener.address().port)
+})
