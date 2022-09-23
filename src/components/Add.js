@@ -1,4 +1,4 @@
-import "./App.css";
+import "../App.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -20,25 +20,12 @@ export default function Add(props) {
     return (
       <form className="add-comment" onSubmit={handleSubmit(onSubmit)}>
         <h4>Add Comment</h4>
-        <input
-          type="text"
-          placeholder="Name"
-          name="comment_name"
-          {...register({ required: true, maxLength: 20 })}
-        />
-        <input
-          type="text"
-          placeholder="Comment"
-          name="comment_message"
-          {...register({ required: true, maxLength: 450 })}
-        />
-        <input
-          type="number"
-          placeholder="Rating"
-          name="comment_rating"
-          {...register({ required: true, max: 5, min: 0 })}
-        />
-  
+        <h5>Name</h5>
+          <input {...register('comment_name', { required: true, maxLength: 20 })} />
+        <h5>Message</h5>
+          <input {...register('comment_message', { required: true, maxLength: 450 })}  />
+        <h5>Rating</h5>
+          <input {...register('comment_rating', { required: true, max: 5, min: 0 })} />
         <input id="btn" type="submit" />
       </form>
     );

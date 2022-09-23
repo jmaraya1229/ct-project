@@ -1,42 +1,37 @@
 import './App.css';
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Add from "./Add";
+import React, {useState} from 'react';
+import Quiz from "./components/Quiz";
+import Comments from "./components/Comments";
+import Home from "./components/Home";
+
 
 function App() {
 
-  const [comments, setComments] = useState([]);
+  const [currentPage, setCurrentPage] = useState('About');
 
-  const getComments = () => {
-      axios.get("http://localhost:3000/comments").then((res) => {
-        setComments(res.data);
-      });
-  };
+    const renderPage = () => {
+        if (currentPage === 'Quiz') {
+            return <Quiz />;
+        }
+        if (currentPage === 'Comments') {
+            return <Comments />;
+        }
+        return <Home />;
+    }
 
-  useEffect(() => {
-      getComments();
-  }, [comments]);
+    const handlePageChange = (page) => setCurrentPage(page);
+
 
   return(
-    <div className="App">
 
-    <Add comments={comments} setComments={setComments} />
-
-    <div className="comments">
-    {comments.map((item) => {
-        return (
-          <div className="comment">
-            <h3>Name: {item.comment_name}</h3>
-            <h3>Comment: {item.comment_message}</h3>
-            <h3>Rating: {item.comment_rating}</h3>
-          </div>
-        );
-    })}
+  <div>
+    <Home currentPage={currentPage} handlePageChange={handlePageChange} />
+    {renderPage()}
   </div>
-
-    </div>
+    
   )
+  
 
-}
+};
 
 export default App;
