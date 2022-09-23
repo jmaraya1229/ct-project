@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Add from "./Add";
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
 
   return(
     <div className="App">
+
+    <Add comments={comments} setComments={setComments} />
 
     <div className="comments">
     {comments.map((item) => {
