@@ -1,37 +1,25 @@
-import './App.css';
-import React, {useState} from 'react';
-import Quiz from "./components/Quiz";
-import Comments from "./components/Comments";
-import Home from "./components/Home";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Settings from "./pages/Settings";
+import Questions from "./pages/Questions";
+import FinalScreen from "./pages/FinalScreen";
+import { Container } from "@mui/material";
+import { Box } from "@mui/system";
 
 function App() {
-
-  const [currentPage, setCurrentPage] = useState('About');
-
-    const renderPage = () => {
-        if (currentPage === 'Quiz') {
-            return <Quiz />;
-        }
-        if (currentPage === 'Comments') {
-            return <Comments />;
-        }
-        return <Home />;
-    }
-
-    const handlePageChange = (page) => setCurrentPage(page);
-
-
-  return(
-
-  <div>
-    <Home currentPage={currentPage} handlePageChange={handlePageChange} />
-    {renderPage()}
-  </div>
-    
-  )
-  
-
-};
+  return (
+    <Router>
+      <Container maxWidth="sm">
+        <Box textAlign="center" mt={5}>
+          <Routes>
+            <Route path="/" element={<Settings/>}>
+            </Route>
+            <Route path="/questions" element={<Questions/>} />
+            <Route path="/score" element={<FinalScreen/>} />
+          </Routes>
+        </Box>
+      </Container>
+    </Router>
+  );
+}
 
 export default App;
