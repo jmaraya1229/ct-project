@@ -2,6 +2,8 @@ import "../App.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { Button, Typography, TextField, Rating} from '@mui/material';
+
 
 export default function Add(props) {
     const { register, handleSubmit } = useForm();
@@ -19,13 +21,17 @@ export default function Add(props) {
 
     return (
       <form className="add-comment" onSubmit={handleSubmit(onSubmit)}>
-        <h4>Add Comment</h4>
-        <h5>Name</h5>
+        <Typography>Add a Comment!</Typography>
+        <Typography>Name</Typography>
           <input {...register('comment_name', { required: true, maxLength: 20 })} />
-        <h5>Message</h5>
+        <Typography>Message</Typography>
           <input {...register('comment_message', { required: true, maxLength: 450 })}  />
-        <h5>Rating</h5>
-          <input {...register('comment_rating', { required: true, max: 5, min: 0 })} />
+        <Typography>Rating</Typography>
+          <input
+          {...register('comment_rating', { required: true, max: 5, min: 0 })} 
+
+          />
+        <br />
         <input id="btn" type="submit" />
       </form>
     );
