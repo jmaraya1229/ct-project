@@ -2,10 +2,14 @@ const express = require("express");
 const mysql = require("mysql2");
 require("dotenv").config();
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(express.json()); // parses incoming requests with JSON payloads
 app.use(cors()); // Will allow client side at localhost:3001 to make requiests to server at port 3000
+
+// declare react files in build as static
+app.use(express.static(path.join(__dirname, "build")));
 
 //create connection to database
 const db = mysql.createPool({
@@ -70,6 +74,10 @@ app.delete("/comments/:id", (req, res) => {
   );
 });
 
+// serve index.html from the build folder
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('App is listening on port ' + listener.address().port)

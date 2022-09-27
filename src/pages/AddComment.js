@@ -16,7 +16,7 @@ export default function Add(props) {
   
     // function to make a POST req to the server to insert data to MySQL db
     const addComment = (data) => {
-      axios.post("http://localhost:3000/comments", data).then(() => {
+      axios.post("https://jmaraya-code-quiz.herokuapp.com/comments", data).then(() => {
         props.setComments([...props.comments, {data}]);
       });
     };
