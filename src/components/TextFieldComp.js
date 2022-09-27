@@ -4,6 +4,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { handleAmountChange } from "../redux/actions";
 
+// Handles numerical field amount of questions
 const TextFieldComp = () => {
   const dispatch = useDispatch();
   const handleChange = (e) => {

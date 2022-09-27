@@ -8,6 +8,7 @@ import {
   handleTagChange,
 } from "../redux/actions";
 
+// handles settings form 
 const SelectField = (props) => {
   const { label, options } = props;
   const dispatch = useDispatch();

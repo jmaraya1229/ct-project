@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { useLazyAxios } from 'use-axios-client';
 
-// Quizapi.io https://quizapi.io/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC&difficulty=Easy&limit=10
+// Quizapi.io https://quizapi.io/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC
 
-// axios.defaults.baseURL = "https://opentdb.com";
 axios.defaults.baseURL = "https://quizapi.io";
 
+// Makes HTTPS requests from the browser; makes requests to quizapi.io 
 const useAxios = ({ url }) => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState("");
