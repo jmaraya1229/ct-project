@@ -21,7 +21,9 @@ const FinalScreen = () => {
   return (
     <Box>
       <Typography variant="h3" fontWeight="bold" mb={3}>
-        Final Score {score} / {amount_of_question}
+        Final Score 
+        <br />
+        {score} / {amount_of_question}
       </Typography>
       <Button onClick={handleBackToSettings} variant="outlined">
         Back to the start!
