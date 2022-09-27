@@ -27,16 +27,19 @@ export default function Add(props) {
           <Typography variant="h4" m={2}>Add a Comment!</Typography>
           <Stack spacing={2}>
             <TextField 
+              required
               type="text" 
               label="Name"
               {...register('comment_name', { required: true, maxLength: 20 })}
               />
             <TextField 
+              required
               type="text"
               label="Message" 
               {...register('comment_message', { required: true, maxLength: 450 })}  
               />
             <TextField 
+            required
             type="number"
             InputProps={{ inputProps: { min: 0, max: 5 } }}
             label="Rating (0-5)"
