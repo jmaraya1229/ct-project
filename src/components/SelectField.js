@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   handleCategoryChange,
   handleDifficultyChange,
-  handleTypeChange,
+  handleTagChange,
 } from "../redux/actions";
 
 const SelectField = (props) => {
@@ -22,8 +22,8 @@ const SelectField = (props) => {
       case "Difficulty":
         dispatch(handleDifficultyChange(e.target.value));
         break;
-      case "Type":
-        dispatch(handleTypeChange(e.target.value));
+      case "Tag":
+        dispatch(handleTagChange(e.target.value));
         break;
       default:
         return;

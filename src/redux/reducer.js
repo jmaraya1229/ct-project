@@ -3,13 +3,13 @@ import {
     CHANGE_CATEGORY,
     CHANGE_DIFFICULTY,
     CHANGE_SCORE,
-    CHANGE_TYPE,
+    CHANGE_TAG,
   } from "./actionsTypes";
   
   const initialState = {
     question_category: "",
     question_difficulty: "",
-    question_type: "",
+    question_tag: "",
     amount_of_question: 50,
     score: 0,
   };
@@ -26,10 +26,10 @@ import {
           ...state,
           question_difficulty: action.payload,
         };
-      case CHANGE_TYPE:
+      case CHANGE_TAG:
         return {
           ...state,
-          question_type: action.payload,
+          question_tag: action.payload,
         };
       case CHANGE_AMOUNT:
         return {

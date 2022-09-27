@@ -2,7 +2,7 @@ import {
     CHANGE_CATEGORY,
     CHANGE_DIFFICULTY,
     CHANGE_AMOUNT,
-    CHANGE_TYPE,
+    CHANGE_TAG,
     CHANGE_SCORE,
   } from "./actionsTypes";
   
@@ -16,8 +16,8 @@ import {
     payload,
   });
   
-  export const handleTypeChange = (payload) => ({
-    type: CHANGE_TYPE,
+  export const handleTagChange = (payload) => ({
+    type: CHANGE_TAG,
     payload,
   });
   

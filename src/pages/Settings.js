@@ -6,7 +6,7 @@ import TextFieldComp from "../components/TextFieldComp";
 import useAxios from "../hooks/useAxios";
 
 const Settings = () => {
-  const { response, error, loading } = useAxios({ url: "/api_category.php" });
+  const { error, loading } = useAxios({ url: "/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC" });
   const navigate = useNavigate();
 
   if (loading) {
@@ -31,15 +31,17 @@ const Settings = () => {
     { id: "hard", name: "Hard" },
   ];
 
-  const typeOptions = [
-    { id: "multiple", name: "Multiple Choise" },
-    { id: "boolean", name: "True/False" },
+  const tagOptions = [
+    { id: "HTML", name: "HTML" },
+    { id: "MYSQL", name: "MYSQL" },
+    { id: "Javascript", name: "Javascript" },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/questions");
   };
+
 
   return (
     <>
@@ -48,9 +50,8 @@ const Settings = () => {
     </Typography>
 
     <form onSubmit={handleSubmit}>
-        <SelectField options={response.trivia_categories} label="Category" />
         <SelectField options={difficultyOptions} label="Difficulty" />
-        <SelectField options={typeOptions} label="Type" />
+        <SelectField options={tagOptions} label="Tag" />
         <TextFieldComp />
         <Box mt={3} width="100%">
           <Button fullWidth variant="contained" type="submit">

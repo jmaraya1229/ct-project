@@ -17,7 +17,7 @@ const db = mysql.createPool({
 
 // Show all comments
 app.get("/comments", (req, res) => {
-  db.query("SELECT * FROM quiz_comments", (err, result) => {
+  db.query("SELECT * FROM quiz_comments ORDER BY id DESC", (err, result) => {
     if (err) {
       console.log(err);
     } else {
