@@ -45,7 +45,7 @@ export default function Add(props) {
           <br />
            </Stack>
 
-           <Button variant="outlined" id="btn" type="input">Submit</Button>
+           <Button variant="contained" id="btn" type="input">Submit</Button>
         </form>
       </Box>
      

@@ -25,7 +25,7 @@ const FinalScreen = () => {
         <br />
         {score} / {amount_of_question}
       </Typography>
-      <Button onClick={handleBackToSettings} variant="outlined">
+      <Button onClick={handleBackToSettings} variant="contained">
         Back to the start!
       </Button>
       <Comments />
