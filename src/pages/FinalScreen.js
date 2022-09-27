@@ -10,6 +10,7 @@ const FinalScreen = () => {
   const disptach = useDispatch();
   const navigate = useNavigate();
   const { score } = useSelector((state) => state);
+  const { amount_of_question } = useSelector((state) => state);
 
   const handleBackToSettings = () => {
     disptach(handleScoreChange(0));
@@ -18,9 +19,9 @@ const FinalScreen = () => {
   };
 
   return (
-    <Box mt={30}>
+    <Box>
       <Typography variant="h3" fontWeight="bold" mb={3}>
-        Final Score {score}
+        Final Score {score} / {amount_of_question}
       </Typography>
       <Button onClick={handleBackToSettings} variant="outlined">
         Back to the start!

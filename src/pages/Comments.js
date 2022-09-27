@@ -29,8 +29,8 @@ function AllComments() {
 
       <AddComment comments={comments} setComments={setComments} />
 
-      <TableContainer component={Paper}>
-      <Table aria-label="simple table">
+      <TableContainer sx={{ maxHeight:350 }} component={Paper}>
+      <Table stickyHeader aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>

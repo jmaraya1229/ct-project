@@ -14,7 +14,6 @@ const getRandomInt = (max) => {
 
 const Questions = () => {
   const {
-    question_category,
     question_difficulty,
     question_tag,
     amount_of_question,

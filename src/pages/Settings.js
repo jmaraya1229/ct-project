@@ -42,7 +42,6 @@ const Settings = () => {
     navigate("/questions");
   };
 
-
   return (
     <>
     <Typography variant="h2" fontWeight="bold">
@@ -58,7 +57,8 @@ const Settings = () => {
             Get Started
           </Button>
         </Box>
-      </form></>
+      </form>
+    </>
   );
 };
 
