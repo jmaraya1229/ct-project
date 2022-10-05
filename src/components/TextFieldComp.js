@@ -18,7 +18,7 @@ const TextFieldComp = () => {
           onChange={handleChange}
           variant="outlined"
           label="Question Amount 1-20"
-          InputProps={{ inputProps: { min: 0, max: 5 } }}
+          InputProps={{ inputProps: { min: 0, max: 20 } }}
           type="number"
           size="small"
         />
