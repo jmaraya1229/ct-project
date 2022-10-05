@@ -17,7 +17,8 @@ const TextFieldComp = () => {
         <TextField
           onChange={handleChange}
           variant="outlined"
-          label="Amount of Questions"
+          label="Question Amount 1-20"
+          InputProps={{ inputProps: { min: 0, max: 5 } }}
           type="number"
           size="small"
         />
