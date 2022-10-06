@@ -49,8 +49,8 @@ const Settings = () => {
     </Typography>
 
     <form onSubmit={handleSubmit}>
-        <SelectField options={difficultyOptions} label="Difficulty" />
-        <SelectField options={tagOptions} label="Tag" />
+        <SelectField options={difficultyOptions} label="Difficulty" required />
+        <SelectField options={tagOptions} label="Tag" required />
         <TextFieldComp />
         <Box mt={3} width="100%">
           <Button fullWidth variant="contained" type="submit">

@@ -16,6 +16,7 @@ const TextFieldComp = () => {
       <FormControl fullWidth size="small">
         <TextField
           onChange={handleChange}
+          required
           variant="outlined"
           label="Question Amount 1-20"
           InputProps={{ inputProps: { min: 0, max: 20 } }}
