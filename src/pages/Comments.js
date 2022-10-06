@@ -14,8 +14,10 @@ function AllComments() {
 
   const [comments, setComments] = useState([]);
 
+  // heroku: https://jmaraya-code-quiz.herokuapp.com/comments
+  // local: http://localhost:3000/comments
   const getComments = () => {
-      axios.get("https://jmaraya-code-quiz.herokuapp.com/comments").then((res) => {
+      axios.get("http://localhost:3000/comments").then((res) => {
         setComments(res.data);
       });
   };

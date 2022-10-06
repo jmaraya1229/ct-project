@@ -48,7 +48,7 @@ const Settings = () => {
       Code Quiz
     </Typography>
 
-    <form required onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <SelectField 
           required
           options={difficultyOptions} 

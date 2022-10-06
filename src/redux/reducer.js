@@ -1,13 +1,11 @@
 import {
     CHANGE_AMOUNT,
-    CHANGE_CATEGORY,
     CHANGE_DIFFICULTY,
     CHANGE_SCORE,
     CHANGE_TAG,
   } from "./actionsTypes";
   
   const initialState = {
-    question_category: "",
     question_difficulty: "",
     question_tag: "",
     amount_of_question: 50,
@@ -16,11 +14,6 @@ import {
   
   const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case CHANGE_CATEGORY:
-        return {
-          ...state,
-          question_category: action.payload,
-        };
       case CHANGE_DIFFICULTY:
         return {
           ...state,

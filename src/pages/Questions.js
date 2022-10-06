@@ -73,7 +73,7 @@ const Questions = () => {
       let correct_answer_index = null
       let array_correct_answers = Object.values(question.correct_answers);
       for (let i=0; i < array_correct_answers.length; i++){
-        if (array_correct_answers[i] == "true"){
+        if (array_correct_answers[i] === "true"){
           correct_answer_index = i
         }
       }
