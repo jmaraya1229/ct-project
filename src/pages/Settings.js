@@ -48,9 +48,17 @@ const Settings = () => {
       Code Quiz
     </Typography>
 
-    <form onSubmit={handleSubmit}>
-        <SelectField options={difficultyOptions} label="Difficulty" required />
-        <SelectField options={tagOptions} label="Tag" required />
+    <form required onSubmit={handleSubmit}>
+        <SelectField 
+          required
+          options={difficultyOptions} 
+          label="Difficulty"  
+          />
+        <SelectField 
+          required
+          options={tagOptions} 
+          label="Tag" 
+           />
         <TextFieldComp />
         <Box mt={3} width="100%">
           <Button fullWidth variant="contained" type="submit">
