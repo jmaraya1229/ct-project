@@ -2,9 +2,7 @@ import "../App.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Button, Typography, TextField } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
+import { Button, Typography, TextField, Box, Stack } from '@mui/material';
 
 
 export default function Add(props) {

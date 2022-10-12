@@ -21,8 +21,11 @@ const Questions = () => {
   } = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  let apiUrl = `/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC&limit=${amount_of_question}`;
+  let apiUrl = `/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC`;
 
+  if(amount_of_question) {
+    apiUrl = apiUrl.concat(`&limit=${amount_of_question}`);
+  }
   if (question_difficulty) {
     apiUrl = apiUrl.concat(`&difficulty=${question_difficulty}`);
   }

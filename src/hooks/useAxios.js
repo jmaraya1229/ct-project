@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// Quizapi.io with key https://quizapi.io/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC
-
 axios.defaults.baseURL = "https://quizapi.io";
 
 // Makes HTTPS requests from the browser; makes requests to quizapi.io 
@@ -13,12 +11,12 @@ const useAxios = ({ url }) => {
 
   useEffect(() => {
 
-    const fetchData = () => {
-       axios
-        .get(url)
-        .then((res) => setResponse(res.data))
-        .catch((err) => setError(err))
-        .finally(() => setLoading(false));
+    const fetchData = async () => {
+        await axios
+          .get(url)
+          .then((res) => setResponse(res.data))
+          .catch((err) => setError(err))
+          .finally(() => setLoading(false));
     };
     fetchData();
   }, [url]);
