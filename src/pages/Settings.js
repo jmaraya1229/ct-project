@@ -44,7 +44,7 @@ const Settings = () => {
 
   return (
     <>
-    <Typography variant="h2" fontWeight="bold">
+    <Typography variant="h2" fontWeight="bold" data-testid="title">
       Code Quiz
     </Typography>
 

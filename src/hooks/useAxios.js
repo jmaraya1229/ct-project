@@ -12,7 +12,7 @@ const useAxios = ({ url }) => {
   useEffect(() => {
 
     const fetchData = async () => {
-        await axios
+        return await axios
           .get(url)
           .then((res) => setResponse(res.data))
           .catch((err) => setError(err))

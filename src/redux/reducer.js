@@ -8,7 +8,7 @@ import {
   const initialState = {
     question_difficulty: "",
     question_tag: "",
-    amount_of_question: 50,
+    amount_of_question: 20,
     score: 0,
   };
   
