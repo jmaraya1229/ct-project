@@ -30,17 +30,20 @@ export default function Add(props) {
               required
               type="text" 
               label="Name"
+              data-testid = "comment_name"
               {...register('comment_name', { required: true, maxLength: 20 })}
               />
             <TextField 
               required
               type="text"
               label="Message" 
+              data-testid = "comment_message"
               {...register('comment_message', { required: true, maxLength: 450 })}  
               />
             <TextField 
             required
             type="number"
+            data-testid = "comment_rating"
             InputProps={{ inputProps: { min: 0, max: 5 } }}
             label="Rating (0-5)"
             {...register('comment_rating', { required: true, max: 5, min: 0 })} 
