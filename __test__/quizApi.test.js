@@ -3,13 +3,13 @@ const frisby = require('frisby');
 // Joi = data validator
 const Joi = frisby.Joi;
 
-it ('should return a status of 200 and a list of questions, answer choices, and correct answers', function () {
+it ('should return a status of 200 and a list of unique questions, answer choices, and correct answers', function () {
   return frisby
     .get('http://quizapi.io/api/v1/questions?apiKey=lO6AWe9K6faBneDIMSY28g4R5qja5vzsdcX6hwiC')
     .expect('status', 200)
     .expect("jsonTypes", "*", [{
-        "id": Joi.number(),
-        "question": Joi.string(),
+        "id": Joi.number().required(),
+        "question": Joi.string().required(),
     }])
     .expect("jsonTypes", "*", [{"correct_answers": {
         "answer_a_correct": Joi.string().required(),
@@ -57,5 +57,4 @@ it ('should return one random easy HTML question with affiliated data', function
             "answer_e": Joi.alternatives().try(Joi.string(), Joi.number(), null),
             "answer_f": Joi.alternatives().try(Joi.string(), Joi.number(), null)
         }}])
-
-  });
+});

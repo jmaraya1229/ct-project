@@ -22,6 +22,7 @@ const TextFieldComp = () => {
           InputProps={{ inputProps: { min: 0, max: 20 } }}
           type="number"
           size="small"
+          data-testid="amount"
         />
       </FormControl>
     </Box>

@@ -16,7 +16,7 @@ export default function Add(props) {
     // heroku: https://jmaraya-code-quiz.herokuapp.com/comments
     // local: http://localhost:3000/comments
     const addComment = (data) => {
-      axios.post("http://localhost:3000/comments", data).then(() => {
+      axios.post("https://jmaraya-code-quiz.herokuapp.com/comments", data).then(() => {
         props.setComments([...props.comments, {data}]);
       });
     };

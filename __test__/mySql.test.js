@@ -6,7 +6,7 @@ describe("Database Tests", () => {
 let connection;
 
     beforeEach(async () => {
-        // creates a fake table that uses my connection information
+        // creates a fake table that uses my connection information from .env
         let createTableSQL =
         "CREATE TABLE `comments` (`id` INT NOT NULL AUTO_INCREMENT, `comment_name` varchar(45) NOT NULL, `comment_rating` INT NOT NULL, `comment_message` VARCHAR(100) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB";
 
@@ -14,7 +14,7 @@ let connection;
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
-        port: 3306,
+        port: process.env.DB_PORT,
         database: process.env.DB
         });
         console.log("Connected to database");
@@ -39,7 +39,9 @@ let connection;
         await Promise.all(insertQueries);
             
         const [rows, fields] = await connection.query("SELECT * FROM comments");
+
         console.log(rows)
+        
         expect(rows.length).toBe(total_test_comments);
         } catch (error) {
         console.log(error);

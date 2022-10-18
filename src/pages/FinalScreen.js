@@ -20,15 +20,15 @@ const FinalScreen = () => {
 
   return (
     <Box>
-      <Typography variant="h3" fontWeight="bold" mb={3}>
+      <Typography variant="h3" fontWeight="bold" mb={3} data-testid="score">
         Final Score 
         <br />
         {score} / {amount_of_question}
       </Typography>
-      <Button onClick={handleBackToSettings} variant="contained">
+      <Button onClick={handleBackToSettings} variant="contained"data-testid="restart-button">
         Back to the start!
       </Button>
-      <Comments />
+      <Comments data-testid="comments"/>
     </Box>
   );
 };
