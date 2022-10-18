@@ -101,7 +101,7 @@ const Questions = () => {
   if (response != null){
     return (
       <Box>
-        <Typography variant="h4">Questions {questionIndex + 1}</Typography>
+        <Typography variant="h4" data-testid="question-title">Questions {questionIndex + 1}</Typography>
         <Typography mt={5}>
           {decode(response[questionIndex].question)}
         </Typography>

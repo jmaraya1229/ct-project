@@ -53,15 +53,13 @@ const Settings = () => {
           required
           options={difficultyOptions} 
           label="Difficulty"  
-          data-testid="difficulty"
           />
         <SelectField 
           required
           options={tagOptions} 
           label="Tag" 
-          data-testid="tag"
            />
-        <TextFieldComp data-testid="amount"/>
+        <TextFieldComp />
         <Box mt={3} width="100%">
           <Button fullWidth variant="contained" type="submit" data-testid="settings-button">
             Get Started

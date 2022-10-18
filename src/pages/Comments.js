@@ -1,4 +1,4 @@
-import '../App.css';
+// import '../App.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AddComment from "./AddComment";
@@ -26,7 +26,7 @@ function AllComments() {
 
       <AddComment comments={comments} setComments={setComments} />
 
-      <TableContainer sx={{ maxHeight:350 }} component={Paper}>
+      <TableContainer sx={{ maxHeight:350 }} component={Paper} data-testid="comments">
       <Table stickyHeader aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -44,8 +44,8 @@ function AllComments() {
               <TableCell>
                 {item.comment_name}
               </TableCell>
-              <TableCell >{item.comment_rating}</TableCell>
-              <TableCell >{item.comment_message}</TableCell>
+              <TableCell>{item.comment_rating}</TableCell>
+              <TableCell>{item.comment_message}</TableCell>
             </TableRow>
           ))}
         </TableBody>

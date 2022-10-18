@@ -1,4 +1,4 @@
-import "../App.css";
+// import "../App.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
